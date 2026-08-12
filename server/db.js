@@ -7,7 +7,7 @@ const db = new Database(DB_PATH);
 db.pragma('journal_mode = WAL');
 db.pragma('foreign_keys = ON');
 
-// ---------- SCHEMA ----------
+
 db.exec(`
 CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS credit_transactions (
 );
 `);
 
-// ---------- SEED DEMO DATA (only if empty) ----------
+
 const userCount = db.prepare('SELECT COUNT(*) c FROM users').get().c;
 if (userCount === 0) {
   const insertUser = db.prepare(`INSERT INTO users (name, email, password_hash, bio, role, credits) VALUES (?,?,?,?,?,?)`);
