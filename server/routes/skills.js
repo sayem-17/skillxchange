@@ -4,7 +4,7 @@ const { requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
-// ---- FR1: add a skill to own profile (teach or learn) ----
+
 router.post('/', requireAuth, (req, res) => {
   const { skill_name, category, type, description } = req.body;
   if (!skill_name || !type || !['teach', 'learn'].includes(type)) {
@@ -30,7 +30,7 @@ router.delete('/:id', requireAuth, (req, res) => {
   res.json({ success: true });
 });
 
-// ---- FR2: Skill Browse & Search with filters ----
+
 router.get('/', (req, res) => {
   const { q, category, type } = req.query;
   let sql = `
