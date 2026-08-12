@@ -5,7 +5,7 @@ const { requireAuth, requireAdmin } = require('../middleware/auth');
 const router = express.Router();
 router.use(requireAuth, requireAdmin);
 
-// ---- FR8: Admin / Dispute Panel ----
+
 router.get('/stats', (req, res) => {
   const users = db.prepare("SELECT COUNT(*) c FROM users WHERE role = 'student'").get().c;
   const skills = db.prepare('SELECT COUNT(*) c FROM skills').get().c;
