@@ -7,7 +7,7 @@ function requireAuth(req, res, next) {
   if (!token) return res.status(401).json({ error: 'Not authenticated. Please log in.' });
   try {
     const payload = jwt.verify(token, JWT_SECRET);
-    req.user = payload; // { id, name, email, role }
+    req.user = payload; 
     next();
   } catch (e) {
     return res.status(401).json({ error: 'Invalid or expired session. Please log in again.' });
