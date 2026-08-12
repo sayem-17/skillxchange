@@ -4,7 +4,7 @@ const { requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
-// ---- FR5: Session Scheduling (only for accepted exchanges) ----
+
 router.post('/', requireAuth, (req, res) => {
   const { exchange_id, scheduled_time, duration_hours } = req.body;
   const ex = db.prepare('SELECT * FROM exchange_requests WHERE id = ?').get(exchange_id);
@@ -30,7 +30,7 @@ function enrichSession(session) {
   return { ...session, skill_name: skill.skill_name, requester, provider };
 }
 
-// list sessions for current user (as requester/learner or provider/teacher)
+
 router.get('/', requireAuth, (req, res) => {
   const sql = `
     SELECT sess.* FROM sessions sess
@@ -41,7 +41,7 @@ router.get('/', requireAuth, (req, res) => {
   res.json({ sessions });
 });
 
-// ---- FR6: Session Confirmation -> triggers credit transfer when BOTH confirm ----
+
 router.put('/:id/confirm', requireAuth, (req, res) => {
   const session = db.prepare('SELECT * FROM sessions WHERE id = ?').get(req.params.id);
   if (!session) return res.status(404).json({ error: 'Session not found.' });
@@ -74,7 +74,7 @@ router.put('/:id/confirm', requireAuth, (req, res) => {
   res.json({ session: finalSession });
 });
 
-// raise a dispute instead of confirming
+
 router.post('/:id/dispute', requireAuth, (req, res) => {
   const { reason } = req.body;
   const session = db.prepare('SELECT * FROM sessions WHERE id = ?').get(req.params.id);
