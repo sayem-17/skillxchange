@@ -4,7 +4,7 @@ const { requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
-// ---- FR4: Time-Credit Wallet & transaction history ----
+
 router.get('/', requireAuth, (req, res) => {
   const user = db.prepare('SELECT credits FROM users WHERE id = ?').get(req.user.id);
   const transactions = db.prepare(
