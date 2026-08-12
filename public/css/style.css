@@ -1,4 +1,4 @@
-/* ===== SkillXchange design tokens ===== */
+
 :root {
   --cream: #FAF6EC;
   --ink: #12332F;
@@ -39,7 +39,7 @@ p { line-height: 1.55; }
 
 .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-/* ===== Top bar ===== */
+
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
   padding: 16px 24px; background: var(--teal-deep); color: var(--cream);
@@ -64,11 +64,11 @@ p { line-height: 1.55; }
 }
 .btn-logout { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--cream); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; }
 
-/* ===== Layout ===== */
+
 .page { padding: 32px 0 80px; min-height: 70vh; }
 .hidden { display: none !important; }
 
-/* ===== Cards (ledger receipt style) ===== */
+
 .card {
   background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow);
   padding: 22px; border: 1px solid var(--line); position: relative;
@@ -81,7 +81,7 @@ p { line-height: 1.55; }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 
-/* ===== Buttons ===== */
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   padding: 10px 18px; border-radius: 9px; border: none; cursor: pointer;
@@ -98,7 +98,7 @@ p { line-height: 1.55; }
 .btn-sm { padding: 6px 12px; font-size: 0.82rem; }
 .btn-full { width: 100%; }
 
-/* ===== Forms ===== */
+
 label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); margin: 12px 0 6px; }
 input, select, textarea {
   width: 100%; padding: 10px 12px; border-radius: 8px; border: 1.5px solid var(--line);
@@ -107,7 +107,7 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus { outline: 2px solid var(--amber); border-color: var(--amber); }
 textarea { resize: vertical; min-height: 70px; }
 
-/* ===== Badges ===== */
+
 .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
 .badge-teach { background: #E4F0EC; color: var(--teal-deep); }
 .badge-learn { background: #FBEAD8; color: var(--amber-deep); }
@@ -118,7 +118,6 @@ textarea { resize: vertical; min-height: 70px; }
 .badge-disputed { background: #FBE2DD; color: var(--rust); }
 .badge-scheduled { background: #EDE6FB; color: #5B3E9C; }
 
-/* ===== Auth screen ===== */
 .auth-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, var(--teal-deep), #16463F 55%, var(--rust) 140%); padding: 24px; }
 .auth-card { background: var(--cream); border-radius: 18px; padding: 40px; max-width: 420px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
 .auth-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
@@ -126,7 +125,7 @@ textarea { resize: vertical; min-height: 70px; }
 .auth-tabs button.active { background: var(--teal); color: var(--white); border-color: var(--teal); }
 .demo-hint { font-size: 0.78rem; color: var(--ink-soft); background: #FBEAD8; padding: 10px 12px; border-radius: 8px; margin-top: 14px; }
 
-/* ===== Misc ===== */
+
 .section-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 10px; }
 .eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber-deep); }
 .muted { color: var(--ink-soft); font-size: 0.88rem; }
