@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 
-require('./db'); // initializes DB + seeds demo data on first run
+require('./db'); 
 
 const authRoutes = require('./routes/auth');
 const skillsRoutes = require('./routes/skills');
@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// ---- API routes ----
+
 app.use('/api/auth', authRoutes);
 app.use('/api/skills', skillsRoutes);
 app.use('/api/exchanges', exchangesRoutes);
@@ -30,7 +30,6 @@ app.use('/api/admin', adminRoutes);
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
 
-// ---- Serve frontend (static) ----
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api/')) return next();
