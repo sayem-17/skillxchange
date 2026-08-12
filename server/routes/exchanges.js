@@ -4,7 +4,7 @@ const { requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
-// ---- FR3: send an exchange request for a listed skill ----
+
 router.post('/', requireAuth, (req, res) => {
   const { skill_id, message } = req.body;
   const skill = db.prepare('SELECT * FROM skills WHERE id = ?').get(skill_id);
@@ -19,7 +19,7 @@ router.post('/', requireAuth, (req, res) => {
   res.status(201).json({ exchange });
 });
 
-// list requests involving the current user (sent + received)
+
 router.get('/', requireAuth, (req, res) => {
   const sql = `
     SELECT er.*, s.skill_name, s.category,
