@@ -1,4 +1,4 @@
-// ===================== State & helpers =====================
+
 const API = '/api';
 let TOKEN = localStorage.getItem('sx_token') || null;
 let ME = null;
@@ -40,7 +40,7 @@ function escapeHtml(str) {
   return (str || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
-// ===================== Auth screen =====================
+
 function setAuthTab(tab) {
   document.getElementById('tab-login').classList.toggle('active', tab === 'login');
   document.getElementById('tab-register').classList.toggle('active', tab === 'register');
@@ -85,7 +85,7 @@ function handleLogout() {
   document.getElementById('auth-screen').classList.remove('hidden');
 }
 
-// ===================== App shell =====================
+
 async function showApp() {
   try {
     const data = await api('/auth/me');
@@ -113,7 +113,7 @@ function navigate(view) {
   if (view === 'admin') loadAdmin();
 }
 
-// ===================== FR1: Dashboard & Skill Profile =====================
+
 async function loadDashboard() {
   document.getElementById('dash-welcome').textContent = `Welcome back, ${ME.name.split(' ')[0]}`;
   try {
@@ -176,7 +176,7 @@ async function deleteSkill(id) {
   catch (err) { toast(err.message, true); }
 }
 
-// ===================== FR2: Browse & Search =====================
+
 let browseTimer = null;
 function debouncedBrowse() { clearTimeout(browseTimer); browseTimer = setTimeout(loadBrowse, 350); }
 
@@ -219,7 +219,7 @@ async function requestExchange(skillId, skillName) {
   } catch (err) { toast(err.message, true); }
 }
 
-// ===================== FR3: Requests =====================
+
 async function loadRequests() {
   try {
     const data = await api('/exchanges');
@@ -267,7 +267,7 @@ async function updateExchange(id, status) {
 
 function openScheduleForm(exId) { document.getElementById('schedule-form-' + exId).classList.remove('hidden'); }
 
-// ===================== FR5: Scheduling =====================
+
 async function scheduleSession(exId) {
   const time = document.getElementById('sched-time-' + exId).value;
   const dur = document.getElementById('sched-dur-' + exId).value;
@@ -279,7 +279,7 @@ async function scheduleSession(exId) {
   } catch (err) { toast(err.message, true); }
 }
 
-// ===================== FR6/FR7: Sessions, confirmation, ratings =====================
+
 async function loadSessions() {
   try {
     const data = await api('/sessions');
@@ -347,7 +347,7 @@ async function submitRating(sid) {
   catch (err) { toast(err.message, true); }
 }
 
-// ===================== FR4: Wallet =====================
+
 async function loadWallet() {
   try {
     const data = await api('/wallet');
@@ -363,7 +363,7 @@ async function loadWallet() {
   } catch (err) { toast(err.message, true); }
 }
 
-// ===================== FR8: Admin =====================
+
 async function loadAdmin() {
   if (ME.role !== 'admin') return;
   try {
@@ -408,5 +408,5 @@ async function toggleBan(id, banned) {
   catch (err) { toast(err.message, true); }
 }
 
-// ===================== Boot =====================
+
 if (TOKEN) { showApp(); }
