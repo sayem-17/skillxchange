@@ -1,0 +1,5 @@
+node_modules/
+skillxchange.db
+skillxchange.db-shm
+skillxchange.db-wal
+.env
