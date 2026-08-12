@@ -4,7 +4,7 @@ const { requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
-// ---- FR7: Rating & Review System (only after a completed session) ----
+
 router.post('/', requireAuth, (req, res) => {
   const { session_id, score, comment } = req.body;
   const session = db.prepare('SELECT * FROM sessions WHERE id = ?').get(session_id);
